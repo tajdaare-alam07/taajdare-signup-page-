@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup/Login Page</title>
+  <link rel="stylesheet" href="About.html">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 250px;
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .sidebar ul li a:hover,
+    .sidebar ul li .active {
+      color: #4CAF50;
+      background-color: #4CAF50;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    /* Main content styling */
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f3f4f6;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-container h1 span {
+      color: #6a0dad;
+    }
+
+    .form-container select, 
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .form-container input[type="password"] {
+      position: relative;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .form-container .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 55%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Get Your Best With Us</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="account.html">Account</a></li>
+      <li><a href="career-assessment.html">Career Assessment Test</a></li>
+      <li><a href="aptitude-test.html">Aptitude Test</a></li>
+      <li><a href="career-description.html">Career Description</a></li>
+      <li><a href="about.html">About</a></li></ul>
+  </div>
+  <div class="main-content">
+    <div class="form-container">
+      <h1>Welcome to <span>our page</span> <span>&#128526;</span></h1>
+      <form id="signupForm">
+        <label for="loginType">Login/Signup</label>
+        <select id="loginType" name="loginType">
+          <option value="login">Login</option>
+          <option value="signup">Signup</option>
+        </select>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password</label>
+        <div style="position: relative;">
+          <input type="password" id="password" name="password" required>
+          <span class="eye-icon" onclick="togglePasswordVisibility()">👁️</span>
+        </div>
+
+        <button type="button" onclick="handleFormSubmit()">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+      } else {
+        passwordField.type = 'password';
+      }
+    }
+
+    function handleFormSubmit() {
+      const loginType = document.getElementById('loginType').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (email && password) {
+        if (loginType === 'login') {
+          alert('Logging in with email: ' + email);
+        } else {
+          alert('Signing up with email: ' + email);
+        }
+      } else {
+        alert('Please fill out all fields.');
+      }
+    }
+  </script>
+</body>
+</html>
